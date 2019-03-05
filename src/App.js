@@ -1,8 +1,25 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import axios from 'axios';
 
 class App extends Component {
+
+    constructor(props) {
+        super(props);
+
+        axios.post('http://localhost:8000/scan.php', {
+            email: 'giovanni.colasante@gmail.com',
+          })
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+    }
+    
+  
   render() {
     return (
       <div className="App">
